@@ -7,7 +7,12 @@
   <version>0.0.1</version>
   <packaging>maven-archetype</packaging>
 
-  <name>single-archetype</name>
+  <name>springboot-webapp-archetype</name>
+  <description>Spring Boot Webapp Archetype (single module)</description>
+
+  <properties>
+    <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+  </properties>
 
   <build>
     <extensions>
@@ -24,13 +29,40 @@
           <artifactId>maven-archetype-plugin</artifactId>
           <version>3.2.0</version>
         </plugin>
+
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>1.6.7</version>
+          <extensions>true</extensions>
+          <configuration>
+            <serverId>ossrh</serverId>
+            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
 
-  <description>Demo project for Spring Boot</description>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
 
-  <url>https://spring.io/projects/spring-boot/single</url>
+  <url>https://github.com/misolab/springboot-webapp-archetype</url>
+
+  <scm>
+    <url>https://github.com/misolab/springboot-webapp-archetype</url>
+    <connection>scm:git:https://github.com/misolab/springboot-webapp-archetype.git</connection>
+    <developerConnection>scm:git:https://github.com/misolab/springboot-webapp-archetype.git</developerConnection>
+  </scm>
 
   <developers>
     <developer>
@@ -49,7 +81,36 @@
     </license>
   </licenses>
 
-  <scm>
-    <url>https://github.com/spring-projects/spring-boot/single</url>
-  </scm>
+  <profiles>
+    <!-- mvn xxx -Prelease -->
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <!-- GPG -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${maven-gpg-plugin.version}</version>
+            <executions>
+              <execution>
+                <id>ossrh</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+                <configuration>
+                  <gpgArguments>
+                    <arg>--pinentry-mode</arg>
+                    <arg>loopback</arg>
+                  </gpgArguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
 </project>
