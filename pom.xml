@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.misolab</groupId>
-  <artifactId>single-archetype</artifactId>
+  <artifactId>springboot-webapp-archetype</artifactId>
   <version>0.0.1</version>
   <packaging>maven-archetype</packaging>
 
