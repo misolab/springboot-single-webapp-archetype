@@ -1,0 +1,39 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script th:src="@{/webjars/vue/vue.min.js}"></script>
+</head>
+<body>
+<div id="wrap">
+    <ul>
+        <li v-for="l in list" @click="click(l)">{{ l }}</li>
+    </ul>
+
+</div>
+
+<script type="text/javascript" th:inline="javascript">
+  var _n = /*[[ ${symbol_dollar}{name} ]]*/{};
+  var _l = /*[[ ${symbol_dollar}{list} ]]*/{};
+
+  var wrap = new Vue({
+    el: "${symbol_pound}wrap",
+    data: function () {
+      return {
+        list: _l,
+        name: _n
+      }
+    },
+    methods: {
+      click: function (l) {
+        alert(this.name + "~" + l);
+      }
+    }
+  })
+</script>
+</body>
+</html>
