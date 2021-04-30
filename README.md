@@ -1,4 +1,4 @@
-# springboot-single-webapp-archetype
+# springboot-webapp-archetype
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.misolab/springboot-single-webapp-archetype/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.misolab/springboot-single-webapp-archetype)
 

@@ -27,7 +27,7 @@ public class IndexController extends BaseController {
     }
 
     @GetMapping("/api")
-    public ResponseEntity<Object> index() {
+    public ResponseEntity<Object> api() {
         ApiResponse response = ApiResponse.of()
                 .add("message", "This is api module")
                 .add("current", DateTimeUtils.toString(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss"));
