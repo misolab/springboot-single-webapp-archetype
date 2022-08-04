@@ -6,7 +6,7 @@
 
 <mapper namespace="${package}.${artifactId}.domain.mapper.MemberMapper">
 
-    <select id="allMembers" resultType="net.joins.domain.entity.Member">
+    <select id="allMembers" resultType="${package}.${artifactId}.domain.entity.Member">
 		SELECT * FROM member
 	</select>
 

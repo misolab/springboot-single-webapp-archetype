@@ -12,7 +12,7 @@ public interface SwaggerConfig {
 
     default ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Joins Multi Project")
+                .title("${artifactId} Project")
                 .description("API documents")
                 .build();
     }
