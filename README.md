@@ -9,7 +9,7 @@ mvn archetype:generate              \
   -DarchetypeCatalog=local          \
   -DarchetypeGroupId=com.misolab    \
   -DarchetypeArtifactId=springboot-webapp-archetype \
-  -DarchetypeVersion=0.0.2          \
+  -DarchetypeVersion=0.0.3          \
   -DgroupId={net.joins}               \
   -Dversion={1.0-SNAPSHOT}            \
   -DartifactId={example}
